@@ -1,0 +1,53 @@
+plugin:
+    name: 'moonwalkerz.press::lang.plugin.name'
+    description: 'moonwalkerz.press::lang.plugin.description'
+    author: 'MoonWalkerz'
+    icon: oc-icon-newspaper-o
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Stampa
+        url: moonwalkerz/press/releases
+        icon: icon-newspaper-o
+        permissions:
+            - 'moonwalkerz.press.*'
+        sideMenu:
+            side-menu-item:
+                label: Notizie
+                url: moonwalkerz/press/releases
+                icon: icon-list
+                permissions:
+                    - moonwalkerz.press.releases
+                    - 'moonwalkerz.press.*'
+            side-menu-item5:
+                label: Tags
+                url: moonwalkerz/press/tags
+                icon: icon-tags
+                permissions:
+                    - moonwalkerz.press.tags
+                    - 'moonwalkerz.press.*'
+            side-menu-item3:
+                label: Categorie
+                url: moonwalkerz/press/categories
+                icon: icon-list-alt
+                permissions:
+                    - moonwalkerz.press.categories
+                    - 'moonwalkerz.press.*'
+            side-menu-item2:
+                label: Rassegna
+                url: moonwalkerz/press/reviews
+                icon: icon-list
+                permissions:
+                    - moonwalkerz.press.reviews
+                    - 'moonwalkerz.press.*'
+            side-menu-item4:
+                label: Testate
+                url: moonwalkerz/press/newspapers
+                icon: icon-newspaper-o
+                permissions:
+                    - moonwalkerz.press.newspapers
+                    - 'moonwalkerz.press.*'
+            side-menu-broadcast:
+                label: 'moonwalkerz.press::lang.components.broadcast.broadcasts'
+                url: moonwalkerz/press/broadcasts
+                icon: icon-signal

@@ -1,0 +1,16 @@
+fields:
+    telegram_api:
+        span: auto
+        type: text
+        label: moonwalkerz.press::lang.settings.telegram_api
+        comment: moonwalkerz.press::lang.settings.telegram_api_comment
+    telegram_channel:
+        span: auto
+        type: text
+        label: moonwalkerz.press::lang.settings.telegram_channel
+        comment: moonwalkerz.press::lang.settings.telegram_channel_comment
+    release_page:
+        label: moonwalkerz.press::lang.settings.releases_page
+        span: left
+        type: dropdown
+        comment: moonwalkerz.press::lang.settings.releases_page_comment

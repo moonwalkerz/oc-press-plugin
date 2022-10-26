@@ -1,0 +1,69 @@
+{% set releases = __SELF__.releases %}
+
+{% if releases is empty %}
+    <div class="my-5 text-center empty w-100">Non vi sono {{categories}} al momento</div>
+{% endif %}
+
+{% for release in releases %}
+<article class="clearfix pb-0 mb-5 mb-10 post media-post row">
+    <div class="col-sm-12 col-md-4">
+        {# if release.images|length #}
+        <a href="{{ release.url }}">
+            <img class="img-fluid w-100" alt="{{ release.images.first.title }}"
+                src="{{ release.images.first.path|resize(400,225,{mode:'crop'}) }}">
+        </a>
+        {#endif#}
+    </div>
+    <div class="post-right col-sm-12 col-md-8">
+        <div class="category-top">
+            <svg class="icon">
+                <use xlink:href="/themes/design/assets/svg/sprite.svg#it-calendar"></use>
+            </svg>
+            <span class="data">{{ release.published_at|date('d/m/y') }}</span>
+        </div>
+        <h5 class="mt-0 mb-5 post-title"><a href="{{ release.url }}">{{ release.title }}</a></h5>
+        <p class="mb-0 post font-12">{{ release.excerpt|raw }}</p>
+    </div>
+</article>
+{% endfor %}
+
+{% if paginate %}
+  {% if releases.lastPage > 1 %}
+  <nav class="pagination-wrapper" aria-label="Navigazione della pagina">
+      <ul class="pagination">
+
+          {% if releases.currentPage > 1 %}
+          <li class="page-item">
+              <a class="page-link"
+                  href="{{ this.page.baseFileName|page({ (__SELF__.pageParam): (releases.currentPage-1) }) }}">
+                  <svg class="icon icon-primary">
+                      <use xlink:href="/themes/design/assets/svg/sprite.svg#it-chevron-left"></use>
+                  </svg>
+                  <span class="sr-only">Pagina precedente</span>
+              </a>
+          </li>
+          {% endif %}
+
+          {% for page in 1..releases.lastPage %}
+          <li class="page-item {{ releases.currentPage == page ? 'active' : null }}">
+              <a class="page-link" href="{{ this.page.baseFileName|page({ (__SELF__.pageParam): page }) }}">{{ page }}</a>
+          </li>
+          {% endfor %}
+
+          {% if releases.lastPage > releases.currentPage %}
+          <li class="page-item">
+              <a class="page-link"
+                  href="{{ this.page.baseFileName|page({ (__SELF__.pageParam): (releases.currentPage+1) }) }}">
+                  <span class="sr-only">Pagina successiva</span>
+                  <svg class="icon icon-primary">
+                      <use xlink:href="/themes/design/assets/svg/sprite.svg#it-chevron-right"></use>
+                  </svg>
+              </a>
+          </li>
+
+          {% endif %}
+
+      </ul>
+  </nav>
+  {% endif %}
+{% endif %}

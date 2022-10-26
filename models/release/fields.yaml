@@ -1,0 +1,92 @@
+fields:
+    title:
+        label: Titolo
+        span: auto
+        type: text
+    slug:
+        label: 'Url Alias'
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+    excerpt:
+        label: Estratto
+        size: small
+        span: full
+        required: 1
+        type: richeditor
+        comment: 'Una versione concisa della notizia per la visione in lista'
+    content:
+        label: Contenuto
+        size: large
+        span: full
+        type: richeditor
+    tags:
+        label: Tags
+        type: taglist
+        mode: relation
+        nameFrom: name
+        span: auto
+    categories:
+        label: Categorie
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        type: relation
+    images:
+        label: Immagini
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
+    documents:
+        label: Allegati
+        mode: file
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
+tabs:
+    fields:
+        published_at:
+            label: 'Pubblicato dal'
+            mode: date
+            span: auto
+            type: datepicker
+            tab: Opzioni
+        published_until:
+            label: 'Pubblicato fino al'
+            mode: datetime
+            span: auto
+            type: datepicker
+            tab: Opzioni
+        featured:
+            label: 'In evidenza?'
+            span: auto
+            type: switch
+            tab: Opzioni
+        show_attachments:
+            label: 'Mostra allegati?'
+            span: auto
+            default: 1
+            type: switch
+            tab: Opzioni
+        date:
+            label: 'moonwalkerz.press::lang.lang.form.date'
+            mode: datetime
+            span: auto
+            type: datepicker
+            tab: Opzioni
+        _date_send:
+            label: 'moonwalkerz.press::lang.form.date_send'
+            mode: datetime
+            span: auto
+            type: datepicker
+            tab: Opzioni
+            default: now + 1 hour

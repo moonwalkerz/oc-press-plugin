@@ -1,0 +1,10 @@
+name: Tags
+form: $/moonwalkerz/press/models/tag/fields.yaml
+modelClass: MoonWalkerz\Press\Models\Tag
+defaultRedirect: moonwalkerz/press/tags
+create:
+    redirect: 'moonwalkerz/press/tags/update/:id'
+    redirectClose: moonwalkerz/press/tags
+update:
+    redirect: moonwalkerz/press/tags
+    redirectClose: moonwalkerz/press/tags

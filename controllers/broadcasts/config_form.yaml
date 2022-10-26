@@ -1,0 +1,10 @@
+name: Broadcasts
+form: $/moonwalkerz/press/models/broadcast/fields.yaml
+modelClass: MoonWalkerz\Press\Models\Broadcast
+defaultRedirect: moonwalkerz/press/broadcasts
+create:
+    redirect: 'moonwalkerz/press/broadcasts/update/:id'
+    redirectClose: moonwalkerz/press/broadcasts
+update:
+    redirect: moonwalkerz/press/broadcasts
+    redirectClose: moonwalkerz/press/broadcasts

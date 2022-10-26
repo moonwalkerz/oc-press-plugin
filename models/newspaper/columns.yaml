@@ -1,0 +1,11 @@
+columns:
+    name:
+        label: name
+        type: text
+        searchable: true
+        sortable: true
+    web:
+        label: web
+        type: text
+        searchable: true
+        sortable: true

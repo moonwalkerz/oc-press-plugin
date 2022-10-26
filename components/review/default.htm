@@ -1,0 +1,146 @@
+
+{% set review = __SELF__.review %}
+
+{% put styles %}
+<meta property="og:url" content="{{  url_current() }}" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{ review.title }}" />
+<meta property="og:description" content="{{ html_strip(html_limit(review.content,100)) }}" />
+
+{% endput %}
+
+
+
+
+
+
+<section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="{{ 'sfondi/affondo.jpg'|media }}" data-position-y="150">
+    <div class="container pt-70 pb-50">
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="text-white title">{{ review.title }}</h4>
+                    <ul class="breadcrumb white">
+                        <li><a class="text-white" href="{{ 'home'|page }}">HOME</a></li>
+                        <li class="active">{{ review.title }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container mt-30 mb-30 pt-30 pb-30">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="blog-posts single-post">
+                    <article class="clearfix mb-0 post">
+
+                    {% if review.images.count %}
+                        <div class="entry-header">
+                            <div class="post-thumb thumb"> <img src="{{ review.images.first.path }}" alt="{{ review.images.first.title }}" title="{{ review.images.first.title }}"
+                                    class="img-responsive img-fullwidth"> </div>
+                        </div>
+                        {% put styles %}
+                        <meta property="og:image" content="{{ review.images.first.path }}" />
+                        <meta property="og:image:url" content="{{ review.images.first.path }}" />
+                        <meta property="og:image:secure_url" content="{{ review.images.first.path }}" />
+                        <meta property="og:image:type" content="image/jpeg" />
+                        <meta property="fb:app_id" content="420952195042470" />
+                        <meta name="description" content="{{ html_strip(html_limit(review.content,100)) }}">
+                        {% endput %}
+                    {% endif %}
+
+
+
+                        <div class="entry-content">
+                            <div class="pb-20 entry-meta media no-bg no-border mt-15">
+                                <div class="pt-5 pb-5 text-center entry-date media-left flip bg-theme-colored pr-15 pl-15">
+                                    <ul>
+                                        <li class="text-white font-16 font-weight-600">{{ review.published_at|date('d') }}</li>
+                                        <li class="text-white font-12 text-uppercase">{{ review.published_at|date('M') }}</li>
+                                    </ul>
+                                </div>
+                                <div class="media-body pl-15">
+                                    <div class="event-content pull-left flip">
+                                        <h4 class="m-0 entry-title text-uppercase">{{ review.title }}</h4>
+
+                                    </div>
+                                </div>
+                            </div>
+                            {{ review.content|raw }}
+
+                            {% if review.documents.count and review.show_attachments %}
+
+                            <h5 class="mt-10 mr-20 pull-left text-theme-colored">Documenti allegati:</h5>
+
+                            <table class="table">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Dimensione</th>
+                                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                {% for at in review.documents%}
+                                {% if at.title %}{%set title = at.title%}{%else%}{%set title= at.file_name%}{% endif %}
+                                    <tr>
+                                    <th scope="row">
+                                        <a href="{{at.path}}"  target="_blank" title="{{ 'Scarica il documento:'|_ }} {{title}}">
+                                        <svg class="icon"><use xlink:href="/themes/design/assets/svg/sprite.svg#it-{{at.extension|lower}}"></use></svg>
+                                        </a>
+                                    </th>
+                                    <td>
+                                        <a href="{{at.path}}" target="_blank" title="{{ 'Scarica il documento:'|_ }} {{title}}">
+                                        {{title}}
+                                        </a>
+                                    </td>
+                                    <td>{{at.size}}</td>
+                                    
+                                  </tr>
+                                {% endfor %}
+                                </tbody>
+                              </table>
+                        {% endif%}
+
+
+
+                            <div class="mb-0 mt-30">
+                                <h5 class="mt-10 mr-20 pull-left text-theme-colored">Condividi:</h5>
+                                <ul class="m-0 social-icons icon-circled">
+                                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{  url_current()|url_encode}}"
+                                            data-bg-color="#3A5795"><i class="text-white fa fa-facebook"></i></a></li>
+                                    <li> <a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"
+                                            data-pin-custom="true" class="fa fa-pinterest" target="_blank"></a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% put scripts %}
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v2.12";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
+{% endput %}

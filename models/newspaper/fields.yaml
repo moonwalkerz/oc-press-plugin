@@ -1,0 +1,9 @@
+fields:
+    name:
+        label: 'Nome testata'
+        span: auto
+        type: text
+    web:
+        label: 'Pagina web'
+        span: auto
+        type: text

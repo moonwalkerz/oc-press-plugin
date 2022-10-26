@@ -1,0 +1,16 @@
+columns:
+    id:
+        label: id
+        type: number
+        searchable: true
+        sortable: true
+    slug:
+        label: Alias
+        type: text
+        searchable: true
+        sortable: true
+    title:
+        label: Titolo
+        type: text
+        searchable: true
+        sortable: true

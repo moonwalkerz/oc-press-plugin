@@ -1,0 +1,19 @@
+fields:
+    subject:
+        label: 'moonwalkerz.press::lang.lang.components.broadcast.subject'
+        span: auto
+        type: text
+    date:
+        label: 'moonwalkerz.press::lang.lang.components.broadcast.date'
+        mode: datetime
+        span: auto
+        type: datepicker
+    body:
+        label: 'moonwalkerz.press::lang.lang.components.broadcast.message'
+        size: large
+        span: full
+        type: richeditor
+    sent:
+        label: 'moonwalkerz.press::lang.lang.components.broadcast.sent'
+        span: auto
+        type: switch

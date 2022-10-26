@@ -1,0 +1,12 @@
+list: $/moonwalkerz/press/models/tag/columns.yaml
+modelClass: MoonWalkerz\Press\Models\Tag
+title: Tags
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'moonwalkerz/press/tags/update/:id'

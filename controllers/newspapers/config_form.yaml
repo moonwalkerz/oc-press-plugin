@@ -1,0 +1,10 @@
+name: Newspapers
+form: $/moonwalkerz/press/models/newspaper/fields.yaml
+modelClass: MoonWalkerz\Press\Models\Newspaper
+defaultRedirect: moonwalkerz/press/newspapers
+create:
+    redirect: 'moonwalkerz/press/newspapers/update/:id'
+    redirectClose: moonwalkerz/press/newspapers
+update:
+    redirect: moonwalkerz/press/newspapers
+    redirectClose: moonwalkerz/press/newspapers

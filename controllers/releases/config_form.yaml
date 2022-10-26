@@ -1,0 +1,10 @@
+name: Releases
+form: $/moonwalkerz/press/models/release/fields.yaml
+modelClass: MoonWalkerz\Press\Models\Release
+defaultRedirect: moonwalkerz/press/releases
+create:
+    redirect: 'moonwalkerz/press/releases/update/:id'
+    redirectClose: moonwalkerz/press/releases
+update:
+    redirect: moonwalkerz/press/releases
+    redirectClose: moonwalkerz/press/releases

@@ -1,0 +1,36 @@
+columns:
+    id:
+        label: id
+        type: number
+        searchable: true
+        sortable: true
+    title:
+        label: titolo
+        type: text
+        searchable: true
+        sortable: true
+    categories:
+        label: Categorie
+        relation: categories
+        select: title
+    published:
+        label: 'Pubblicato'
+        type: inetis-list-switch
+        icon: true
+        titleTrue: 'Pubblica'
+        titleFalse: 'Togli dalla pubblicazione'
+        textTrue: 'Pubblicato'
+        textFalse: 'Non pubblicato'
+    featured:
+        label: 'In evidenza'
+        type: inetis-list-switch
+        icon: true
+        titleTrue: 'Metti in evidenza'
+        titleFalse: 'Togli in evidenza'
+        textTrue: 'In evidenza'
+        textFalse: 'Non in evidenza'
+    published_at:
+        label: data
+        type: date
+        searchable: true
+        sortable: true

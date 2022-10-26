@@ -1,0 +1,10 @@
+name: Categories
+form: $/moonwalkerz/press/models/category/fields.yaml
+modelClass: MoonWalkerz\Press\Models\Category
+defaultRedirect: moonwalkerz/press/categories
+create:
+    redirect: 'moonwalkerz/press/categories/update/:id'
+    redirectClose: moonwalkerz/press/categories
+update:
+    redirect: moonwalkerz/press/categories
+    redirectClose: moonwalkerz/press/categories

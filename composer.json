@@ -1,0 +1,16 @@
+{
+    "name": "moonwalkerz/press",
+    "authors": [
+        {
+            "name": "Alain Martini",
+            "email": "alain@moonwalkerz.dev"
+        },
+        {
+            "name": "Nicolò Verginella",
+            "email": "webmaster@moonwalkerz.dev"
+        }
+    ],
+    "require": {
+        "irazasyed/telegram-bot-sdk": "^3.9"
+    }
+}

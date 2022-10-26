@@ -1,0 +1,114 @@
+
+{% set release = __SELF__.release %}
+
+{% put styles %}
+<meta property="og:url" content="{{  url_current() }}" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{ release.title }}" />
+<meta property="og:description" content="{{ html_strip(html_limit(release.content,100)) }}" />
+
+{% endput %}
+
+
+
+<section>
+    
+
+                    <article class="clearfix mb-5 post">
+
+                    {% if release.images|length %}
+                        <div class="entry-header">
+                            <div class="post-thumb thumb">
+                            <img src="{{ release.images.first.path }}" alt="{{ release.images.first.title }}" title="{{ release.images.first.title }}"
+                                    class="img-fluid w-100"> </div>
+                        </div>
+                        {% put styles %}
+                        <meta property="og:image" content="{{ release.images.first.path }}" />
+                        <meta property="og:image:url" content="{{ release.images.first.path }}" />
+                        <meta property="og:image:secure_url" content="{{ release.images.first.path }}" />
+                        <meta property="og:image:type" content="image/jpeg" />
+                        <meta property="fb:app_id" content="420952195042470" />
+                        <meta name="description" content="{{ html_strip(html_limit(release.content,100)) }}">
+                        {% endput %}
+                    {% endif %}
+
+
+<h2 >{{ release.title }}</h2>
+<p>{{ release.published_at|date('d M Y') }}</p>
+                        <div class="entry-content">
+
+                            {{ release.content|raw }}
+
+                    
+                            {% if release.documents.count and release.show_attachments %}
+
+                            <h5 class="mt-10 mr-20 pull-left text-theme-colored">Documenti allegati:</h5>
+
+                            <table class="table">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Dimensione</th>
+                                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                {% for at in release.documents%}
+                                {% if at.title %}{%set title = at.title%}{%else%}{%set title= at.file_name%}{% endif %}
+                                    <tr>
+                                    <th scope="row">
+                                        <a href="{{at.path}}"  target="_blank" title="{{ 'Scarica il documento:'|_ }} {{title}}">
+                                        <svg class="icon"><use xlink:href="/themes/design/assets/svg/sprite.svg#it-{{at.extension|lower}}"></use></svg>
+                                        </a>
+                                    </th>
+                                    <td>
+                                        <a href="{{at.path}}" target="_blank" title="{{ 'Scarica il documento:'|_ }} {{title}}">
+                                        {{title}}
+                                        </a>
+                                    </td>
+                                    <td>{{at.size}}</td>
+                                    
+                                  </tr>
+                                {% endfor %}
+                                </tbody>
+                              </table>
+{% endif%}
+
+
+                            <div class="mb-0 mt-30">
+                                <h5 class="mt-10 mr-20 pull-left text-theme-colored">Condividi:</h5>
+                                <div class="list-group list-group-horizontal">
+                                    <div class="list-group-item"><a href="https://www.facebook.com/sharer/sharer.php?u={{  url_current()|url_encode}}"
+                                        target="_blank"><i class="fa-3x fab fa-facebook"></i></a></div>
+                                    <!-- <li> <a href="https://www.pinterest.com/pin/create/button/"
+                                            target="_blank"><i  class="fa-3x fab fa-pinterest"></i></a></li> -->
+                                    <div  class="list-group-item"> <a href="https://api.whatsapp.com/send?text={{  url_current()|url_encode}}"
+                                                target="_blank"><i  class="fa-3x fab fa-whatsapp"></i></a></div>
+                                    <div class="list-group-item"> <a href="https://t.me/share/url?url={{  url_current()|url_encode}}&text={{release.title|url_encode}}"
+                                                    target="_blank"><i  class="fa-3x fab fa-telegram"></i></a></div>
+                                                
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                
+</section>
+
+
+{% put scripts %}
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v2.12";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
+{% endput %}

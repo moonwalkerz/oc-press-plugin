@@ -1,0 +1,25 @@
+columns:
+    id:
+        label: id
+        type: number
+        sortable: true
+    created_at:
+        label: created_at
+        type: datetime
+        sortable: true
+    date:
+        label: 'moonwalkerz.press::lang.lang.components.broadcast.date'
+        type: datetime
+        sortable: true
+    subject:
+        label: 'moonwalkerz.press::lang.lang.components.broadcast.subject'
+        type: text
+        searchable: true
+    sent:
+        label: 'moonwalkerz.press::lang.lang.components.broadcast.sent'
+        type: inetis-list-switch
+        icon: true
+        titleTrue: 'Segna come spedito'
+        titleFalse: 'Segna come da spedire'
+        textTrue: 'Spedito'
+        textFalse: 'Non spedito'

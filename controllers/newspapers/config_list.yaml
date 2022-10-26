@@ -1,0 +1,12 @@
+list: $/moonwalkerz/press/models/newspaper/columns.yaml
+modelClass: MoonWalkerz\Press\Models\Newspaper
+title: Newspapers
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'moonwalkerz/press/newspapers/update/:id'

@@ -1,0 +1,61 @@
+fields:
+    title:
+        label: Titolo
+        span: auto
+        type: text
+    slug:
+        label: 'Url Alias'
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+    content:
+        label: Contenuto
+        size: large
+        span: full
+        type: richeditor
+    newspaper:
+        label: Testata
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+    categories:
+        label: Categorie
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        type: relation
+    images:
+        label: Immagini
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
+    documents:
+        label: Allegati
+        mode: file
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
+tabs:
+    fields:
+        published:
+            label: 'Pubblicato?'
+            span: auto
+            default: 1
+            type: switch
+            tab: 'Tab 1'
+        show_attachments:
+            label: 'Mostra allegati?'
+            span: auto
+            default: 1
+            type: switch
+            tab: 'Tab 1'

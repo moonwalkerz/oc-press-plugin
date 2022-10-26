@@ -1,0 +1,10 @@
+name: Reviews
+form: $/moonwalkerz/press/models/review/fields.yaml
+modelClass: MoonWalkerz\Press\Models\Review
+defaultRedirect: moonwalkerz/press/reviews
+create:
+    redirect: 'moonwalkerz/press/reviews/update/:id'
+    redirectClose: moonwalkerz/press/reviews
+update:
+    redirect: moonwalkerz/press/reviews
+    redirectClose: moonwalkerz/press/reviews
